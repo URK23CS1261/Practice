@@ -1,23 +1,29 @@
-name: CI for pytest
+name : GIT CI
+on:
+    push:
+        branches: [main]
 
-on: 
-    push: 
-        branches : [ main ]
     pull_request:
-        branches: [ main ]
+        branches: [main]
 
 jobs:
     build-test:
         runs-on: ubuntu-latest
 
         steps:
-            - name: Checkout to latest code
+            - name : checkout repo
               uses: actions/checkout@v4
+            
             - name: Setup python
-              uses: actions/setup-python@v5
+              uses : actions/setup-python@v5
+
               with:
-                python-version: '3.11'
-            - name: Install Requirements
-              run: pip install -r requirements.txt
-            - name: Run tests
-              run: pytest test_app.py -v
+                python-version : "3.12"
+
+            - name : Install Dependencies
+              run  : pip install -r requirements.txt
+
+            - name : Run Pytest
+              run  : pytest test_app.py -v 
+
+
