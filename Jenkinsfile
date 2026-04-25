@@ -2,13 +2,13 @@ pipeline {
     agent any
     environment {
         IMAGE_NAME      = "myapp"
-        DOCKER_HUB_USER = "<username>" //change
+        DOCKER_HUB_USER = "urk23cs1261" //change
     }
     stages {
         stage('Clone') {
             steps {
                 git branch: 'main',
-                    url: 'https://github.com/<username>/flask-app.git' //change
+                    url: 'https://github.com/URK23CS1261/Practice.git' //change
             }
         }
         stage('Build Image') {
